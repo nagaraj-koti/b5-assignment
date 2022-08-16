@@ -17,23 +17,24 @@ pipeline{
         }
 
         stage('B'){
+            when {
+                expression {
+                    isA == true
+                }
+            }
             steps{
-                script{
-                if(isA){
-                    echo 'stage B is Running'
-                }
-                }
+                echo 'Stage B is running'
             }
         }
 
         stage('C'){
+            when {
+                expression {
+                    isA == false
+                }
+            }
             steps{
-                echo 'stage C'
-                script{
-                if(!isA){
-                    echo 'stage C is Running'
-                }
-                }
+                echo 'Stage C is running'
             }
         }
     }
