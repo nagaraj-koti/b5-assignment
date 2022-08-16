@@ -1,0 +1,43 @@
+boolean isA=false
+pipeline{
+    agent any
+    parameters {
+        choice choices: ['success', 'fail'], description: 'set \'A\' stage status', name: 'Is_A'
+    }
+
+    stages{
+        stage('A'){
+            steps{
+            script{
+                catchError(buildResult='SUCCESS', stageResult='FAILURE'){
+                    echo 'Stage A is Running'
+                    // sh 'exit 1'
+                    isA=true
+                }
+            }
+        }
+        }
+
+        stage('B'){
+            when {
+                expression {
+                    isA == true
+                }
+            }
+            steps{
+                echo 'Stage B is running'
+            }
+        }
+
+        stage('C'){
+            when {
+                expression {
+                    isA == false
+                }
+            }
+            steps{
+                echo 'Stage C is running'
+            }
+        }
+    }
+}
