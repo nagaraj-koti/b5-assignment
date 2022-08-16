@@ -4,6 +4,7 @@ pipeline{
     stages{
         stage('A'){
             steps{
+                echo 'stage A'
             script{
                 try{
                 echo 'Stage A is Running'
@@ -23,7 +24,16 @@ pipeline{
                 }
             }
             steps{
+<<<<<<< HEAD
                 echo 'Stage B is running'
+=======
+                echo 'stage B'
+                script{
+                if(isA){
+                    echo 'stage B is Running'
+                }
+                }
+>>>>>>> fed6e637df1ffdb331a0c2e8e278cc04e839fd3e
             }
         }
 
