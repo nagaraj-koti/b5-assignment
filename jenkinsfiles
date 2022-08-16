@@ -2,8 +2,8 @@ boolean isA=true
 pipeline{
     agent any
     parameters {
-  choice choices: ['success', 'fail'], description: 'set \'A\' stage status', name: 'Is_A'
-}
+        choice choices: ['success', 'fail'], description: 'set \'A\' stage status', name: 'Is_A'
+    }
 
     stages{
         stage('A'){
