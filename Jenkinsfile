@@ -28,9 +28,10 @@ pipeline{
 
         stage('C'){
             steps{
+                echo 'stage C'
                 script{
                 if(!isA){
-                    echo 'stage B is Running'
+                    echo 'stage C is Running'
                 }
                 }
             }
