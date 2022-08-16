@@ -4,6 +4,7 @@ pipeline{
     stages{
         stage('A'){
             steps{
+                echo 'stage B'
             script{
                 try{
                 echo 'Stage A is Running'
