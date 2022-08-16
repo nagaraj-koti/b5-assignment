@@ -9,7 +9,7 @@ pipeline{
         stage('A'){
             steps{
             // script{
-                catchError(buildResult='SUCCESS', stageResult='FAILURE'){
+                catchError(buildResult:'SUCCESS', stageResult:'FAILURE'){
                     echo 'Stage A is Running'
                     // sh 'exit 1'
                     isA=true
