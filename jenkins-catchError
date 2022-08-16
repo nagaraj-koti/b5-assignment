@@ -30,6 +30,7 @@ pipeline{
             }
             steps{
                 echo 'Stage B is running'
+                echo 'Congrats, stage A completed'
             }
         }
 
@@ -41,6 +42,7 @@ pipeline{
             }
             steps{
                 echo 'Stage C is running'
+                echo 'Sorry, Stage A Failed.'
             }
         }
     }
